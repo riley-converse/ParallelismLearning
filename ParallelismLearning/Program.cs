@@ -40,7 +40,11 @@ namespace ParallelismLearning
                 tasks.Add(factory.StartNew(() => DoTask(pattern.GetPattern().Item2,cts, global),token));
             }
 
+
             Task.WaitAll(tasks.ToArray());
+            //Task.WaitAny(tasks.ToArray());
+     
+
             global.Stop();
             Console.WriteLine("Pattern Searched completed in [GLOBAL] "+global.ElapsedMilliseconds);
         }
